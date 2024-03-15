@@ -1,4 +1,4 @@
-name: Build documentation for offline usage
+name: Update submodules
 on:
   workflow_dispatch:
 
