@@ -1,18 +1,16 @@
 name: Update submodules
 on:
-  workflow_dispatch:
-
+  push:
+    branches:
+      - 4.x
+      
 jobs:
-  build:
+  update-submodules:
     runs-on: ubuntu-22.04
-    strategy:
-      matrix:
-        branch:
-          - 4.x
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
         with:
-          ref: ${{ matrix.branch }}
           submodules: recursive
 
       - name: ls dependencies
@@ -26,3 +24,5 @@ jobs:
           git commit -am "Update submodules"
           git push
           
+
+
