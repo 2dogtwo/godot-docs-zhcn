@@ -1,0 +1,28 @@
+name: Build documentation for offline usage
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        branch:
+          - 4.x
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ matrix.branch }}
+          submodules: recursive
+
+      - name: ls dependencies
+        run: |
+          ls -AR
+
+
+      - name: Update submodules
+        run: |
+          git submodule update --remote
+          git commit -am "Update submodules"
+          git push
+          
