@@ -1,4 +1,4 @@
 [submodule "docs"]
 	path = docs
-	url = https://github.com/2dogtwo/godot-docs
+	url = https://github.com/godotengine/godot-docs
 	branch = 4.2
