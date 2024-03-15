@@ -15,13 +15,13 @@ jobs:
           ref: ${{ matrix.branch }}
 
       - name: Install dependencies
-        working-directory: /docs
         run: |
           sudo pip3 install -r requirements.txt
           sudo pip3 install codespell
           sudo apt update
           sudo apt install parallel libwebp7
-          sed -i 's/"READTHEDOCS_LANGUAGE", "en"/"READTHEDOCS_LANGUAGE", "zh_CN"/' conf.py
+          ls -AR
+          sed -i 's/"READTHEDOCS_LANGUAGE", "en"/"READTHEDOCS_LANGUAGE", "zh_CN"/' /docs/conf.py
  
       - name: Sphinx - Build HTML
         working-directory: /docs
